@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Love_2025</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:wght@500;700&family=Inter:wght@300;500;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=12.2" />
+</head>
+
+<body>
+  <div id="hearts" aria-hidden="true"></div>
+
+  <audio id="song" preload="auto" loop src="assets/audio/her.mp3"></audio>
+
+  <div id="loader" class="loader">
+    <div class="loaderBox">
+      <div class="loaderTitle">Loading your surprise…</div>
+      <div class="loaderBar"><div id="loaderFill" class="loaderFill"></div></div>
+      <div id="loaderPct" class="loaderPct">0%</div>
+      <div class="loaderSmall">Just a second. Worth it.</div>
+    </div>
+  </div>
+
+  <header class="topBar">
+    <div class="brand">Love_2025</div>
+    <div class="miniCounters">
+      <div class="miniC">
+        <div class="k">Since 06 Sep 2025</div>
+        <div class="v" id="sinceTop">—</div>
+      </div>
+      <div class="miniC">
+        <div class="k">New Year (Jan 1, 2026)</div>
+        <div class="v" id="nyTop">—</div>
+      </div>
+    </div>
+  </header>
+
+  <button id="calmFab" class="calmFab" type="button" aria-label="Open Calm Mode">Calm Mode</button>
+
+  <main>
+    <!-- POSTER -->
+    <section id="poster" class="poster">
+      <div class="sky" style="background-image:url('assets/bg/anime-sky.jpg')"></div>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="clouds" aria-hidden="true"></div>
+
+      <!-- Constellation: RENY written by stars (NO typed text) -->
+      <div class="constellation" aria-hidden="true">
+        <svg class="constellationSvg" viewBox="0 0 1200 700" preserveAspectRatio="none">
+
+          <!-- main constellation dots -->
+          <g class="cDots">
+            <circle cx="180" cy="170" r="3.2"/>
+            <circle cx="240" cy="140" r="2.7"/>
+            <circle cx="310" cy="165" r="3.4"/>
+            <circle cx="380" cy="135" r="2.8"/>
+            <circle cx="460" cy="160" r="3.2"/>
+            <circle cx="540" cy="140" r="2.8"/>
+            <circle cx="620" cy="162" r="3.5"/>
+            <circle cx="700" cy="140" r="2.7"/>
+            <circle cx="780" cy="165" r="3.4"/>
+            <circle cx="860" cy="145" r="2.8"/>
+            <circle cx="940" cy="170" r="3.2"/>
+          </g>
+          <path class="cLines" d="M180,170 L240,140 L310,165 L380,135 L460,160 L540,140 L620,162 L700,140 L780,165 L860,145 L940,170" />
+
+          <!-- "RENY" as star letters -->
+          <g class="nameStars">
+            <!-- grid helper: rowY = 95 + row*14 ; colX = base + col*18 -->
+
+            <!-- R (base 470) -->
+            <circle cx="470" cy="95" r="2.6"/><circle cx="488" cy="95" r="2.6"/><circle cx="506" cy="95" r="2.6"/><circle cx="524" cy="95" r="2.6"/>
+            <circle cx="470" cy="109" r="2.6"/><circle cx="470" cy="123" r="2.6"/><circle cx="470" cy="137" r="2.6"/><circle cx="470" cy="151" r="2.6"/><circle cx="470" cy="165" r="2.6"/><circle cx="470" cy="179" r="2.6"/>
+            <circle cx="524" cy="109" r="2.6"/><circle cx="524" cy="123" r="2.6"/>
+            <circle cx="470" cy="137" r="2.6"/><circle cx="488" cy="137" r="2.6"/><circle cx="506" cy="137" r="2.6"/><circle cx="524" cy="137" r="2.6"/>
+            <circle cx="488" cy="151" r="2.6"/><circle cx="506" cy="165" r="2.6"/><circle cx="524" cy="179" r="2.6"/>
+
+            <!-- E (base 570) -->
+            <circle cx="570" cy="95" r="2.6"/><circle cx="588" cy="95" r="2.6"/><circle cx="606" cy="95" r="2.6"/><circle cx="624" cy="95" r="2.6"/>
+            <circle cx="570" cy="109" r="2.6"/><circle cx="570" cy="123" r="2.6"/><circle cx="570" cy="137" r="2.6"/><circle cx="570" cy="151" r="2.6"/><circle cx="570" cy="165" r="2.6"/><circle cx="570" cy="179" r="2.6"/>
+            <circle cx="570" cy="137" r="2.6"/><circle cx="588" cy="137" r="2.6"/><circle cx="606" cy="137" r="2.6"/><circle cx="624" cy="137" r="2.6"/>
+            <circle cx="570" cy="179" r="2.6"/><circle cx="588" cy="179" r="2.6"/><circle cx="606" cy="179" r="2.6"/><circle cx="624" cy="179" r="2.6"/>
+
+            <!-- N (base 670) -->
+            <circle cx="670" cy="95" r="2.6"/><circle cx="670" cy="109" r="2.6"/><circle cx="670" cy="123" r="2.6"/><circle cx="670" cy="137" r="2.6"/><circle cx="670" cy="151" r="2.6"/><circle cx="670" cy="165" r="2.6"/><circle cx="670" cy="179" r="2.6"/>
+            <circle cx="724" cy="95" r="2.6"/><circle cx="724" cy="109" r="2.6"/><circle cx="724" cy="123" r="2.6"/><circle cx="724" cy="137" r="2.6"/><circle cx="724" cy="151" r="2.6"/><circle cx="724" cy="165" r="2.6"/><circle cx="724" cy="179" r="2.6"/>
+            <circle cx="688" cy="109" r="2.6"/><circle cx="706" cy="123" r="2.6"/><circle cx="706" cy="151" r="2.6"/><circle cx="688" cy="165" r="2.6"/>
+
+            <!-- Y (base 770) -->
+            <circle cx="770" cy="95" r="2.6"/><circle cx="788" cy="109" r="2.6"/><circle cx="806" cy="123" r="2.6"/>
+            <circle cx="824" cy="95" r="2.6"/><circle cx="806" cy="109" r="2.6"/><circle cx="788" cy="123" r="2.6"/>
+            <circle cx="806" cy="137" r="2.6"/><circle cx="806" cy="151" r="2.6"/><circle cx="806" cy="165" r="2.6"/><circle cx="806" cy="179" r="2.6"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- BOOM VFX -->
+      <div class="flareCross" aria-hidden="true"></div>
+      <div class="whiteFlash" aria-hidden="true"></div>
+      <div class="loveBubble" aria-hidden="true"></div>
+      <div id="sparks" class="sparks" aria-hidden="true"></div>
+
+      <div id="revealLine" class="revealLine" aria-hidden="true"></div>
+
+      <!-- Thread SVG -->
+      <svg class="threadSvg" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <!-- tuned glow: less pink, more red -->
+          <filter id="threadGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="b"/>
+            <feMerge>
+              <feMergeNode in="b"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <path id="laserL" class="thread laser" d="M600,370 C520,390 420,430 300,510"/>
+        <path id="laserR" class="thread laser" d="M600,370 C680,390 780,430 900,510"/>
+
+        <path id="tangle" class="thread tangle"
+          d="M320,520
+             C420,420 430,610 540,520
+             C610,460 620,640 710,520
+             C800,390 830,600 920,520"/>
+
+        <path id="clean" class="thread clean"
+          d="M320,520
+             C450,495 520,480 600,480
+             C680,480 750,495 920,520"/>
+
+        <path id="wrap" class="thread wrap"
+          d="M600,500
+             m -180,0
+             a 180,110 0 1,0 360,0
+             a 180,110 0 1,0 -360,0"/>
+
+        <!-- knot (NOT a heart) -->
+        <path id="knotHeart" class="thread knot"
+          d="M600,500
+             C580,470 540,472 540,500
+             C540,528 580,530 600,500
+             C620,470 660,472 660,500
+             C660,528 620,530 600,500
+             M560,500 C580,512 592,520 600,530
+             M640,500 C620,512 608,520 600,530"/>
+      </svg>
+
+      <div class="heroText">
+        <div class="headline">Before 06 September, everything felt muted.</div>
+        <div class="subline">Place your thumb. Hold. Watch destiny move.</div>
+      </div>
+
+      <div class="sceneChars" aria-hidden="true">
+        <img id="boyIdle" class="sil boy" src="assets/characters/boy-idle.png" alt="">
+        <img id="girlIdle" class="sil girl" src="assets/characters/girl-idle.png" alt="">
+        <img id="boyRun" class="sil boy run hidden" src="assets/characters/boy-run.png" alt="">
+        <img id="girlRun" class="sil girl run hidden" src="assets/characters/girl-run.png" alt="">
+        <img id="hugSil" class="sil hug hidden" src="assets/characters/hug.png" alt="">
+      </div>
+
+      <div class="thumbUI">
+        <div class="thumbHint">Place your thumb to connect us.</div>
+
+        <div id="thumbHit" class="thumbHit" role="button" aria-label="Place your thumb to connect us">
+          <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="ringBase" cx="60" cy="60" r="46"></circle>
+            <circle id="ringProg" class="ringProg" cx="60" cy="60" r="46"></circle>
+          </svg>
+
+          <div class="scanSweep" aria-hidden="true"></div>
+
+          <svg class="fpSvg" viewBox="0 0 64 64" aria-hidden="true">
+            <g fill="none" stroke="rgba(255,255,255,.86)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path class="fpPath" d="M32 10c-8.5 0-15.5 6.7-16 15.2"/>
+              <path class="fpPath" d="M32 16c5.6 0 10.2 4.6 10.2 10.2v7.7"/>
+              <path class="fpPath" d="M28.6 24.1c-3 1.3-4.9 4.3-4.9 7.7v2.9"/>
+              <path class="fpPath" d="M33.8 28.8c1 .9 1.6 2.1 1.6 3.4v2.5"/>
+              <path class="fpPath" d="M18 34.1c0 8.5 2.3 15.8 4.7 21"/>
+              <path class="fpPath" d="M40.6 55c3.3-4.8 6.2-12.4 6.2-21.2"/>
+            </g>
+          </svg>
+
+          <div class="pulse"></div>
+        </div>
+
+        <div class="thumbSmall">(Hold to complete. Release to reset.)</div>
+        <div id="audioHint" class="audioHint hidden">Sound blocked? Tap and hold again.</div>
+
+        <div id="afterHint" class="afterHint hidden">
+          Connected. Scroll down.
+          <button id="replayBtn" class="replayBtn" type="button">Replay the moment</button>
+        </div>
+      </div>
+
+      <div class="scrollNudge">↓</div>
+    </section>
+
+    <!-- MEMORIES -->
+    <section id="memories" class="memories">
+      <h2 class="titleSerif">Our memories… in color.</h2>
+
+      <div id="herWrap" class="herWrap hidden">
+        <div class="herTitle">…and then it was <span class="HER">HER</span></div>
+        <div class="rope"></div>
+        <div class="herGrid" id="herGrid"></div>
+      </div>
+
+      <div id="usGallery" class="photoGrid"></div>
+    </section>
+
+    <!-- OPEN WHEN VAULT -->
+    <section id="openWhen" class="openWhen">
+      <h2 class="titleSerif">Open When Vault</h2>
+      <div class="noteLine">These are promises. Open only when you truly feel it.</div>
+      <div id="vaultGrid" class="vaultGrid"></div>
+    </section>
+
+    <!-- STORY MODE -->
+    <section id="storyMode" class="storyMode locked">
+      <h2 class="titleSerif">Story Mode</h2>
+      <div class="noteLine">A cinematic scroll. Every frame fits.</div>
+      <div id="storyTrack" class="storyTrack" aria-label="Photo story"></div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="timeline">
+      <h2 class="titleSerif">Locked Memories</h2>
+
+      <div class="gameIntro">
+        <p>Har memory locked hai, because har memory special hai. Unlock karne ke liye answer do — wrong ho gaya toh tension nahi, hints milenge.</p>
+        <p class="miniNote">Jab 9/9 unlock ho jayega… ek hidden letter reveal hoga.</p>
+        <div class="progressRow">
+          <div id="progressPill" class="progressPill">Unlocked: 0/9</div>
+          <div id="secretPill" class="progressPill ghost">Hidden letter: Locked</div>
+        </div>
+      </div>
+
+      <div id="timelineNote" class="noteLine"></div>
+      <div id="timelineCards" class="timelineCards"></div>
+    </section>
+
+    <!-- SECRET -->
+    <section id="secretArea" class="secretArea locked">
+      <h2 class="titleSerif">You unlocked the hidden letter.</h2>
+
+      <div class="secretLetter">
+        <div class="secretGlow"></div>
+        <pre id="gujLetter" class="gujLetter"></pre>
+
+        <div class="secretTools">
+          <button id="printLetterBtn" class="ghostBtn" type="button">Save / Print letter as PDF</button>
+        </div>
+      </div>
+
+      <div class="bucket">
+        <h3 class="bucketTitle">2026 Bucket List (for us)</h3>
+        <ul class="bucketList" id="bucketList"></ul>
+      </div>
+
+      <div class="secretCTA">
+        <button id="toFinalBtn" class="ctaBtn">Go to the final message</button>
+      </div>
+    </section>
+
+    <!-- CAPSULES -->
+    <section id="capsules" class="capsules">
+      <h2 class="titleSerif">Time Capsules</h2>
+      <div class="noteLine">Three letters from “Future Us”. Locked until their date.</div>
+      <div id="capsuleGrid" class="capsuleGrid"></div>
+    </section>
+
+    <!-- THEN & NOW -->
+    <section id="thenNow" class="thenNow">
+      <h2 class="titleSerif">Before we knew… we were already written.</h2>
+      <div class="thenSub">Slide it. Watch two stories become one.</div>
+
+      <div class="reveal">
+        <img class="revealTop" src="assets/images/ai/child-merge-1.jpg" alt="">
+        <div id="revealBottom" class="revealBottom">
+          <img src="assets/images/ai/child-merge-2.jpg" alt="">
+        </div>
+        <input id="slider" class="slider" type="range" min="0" max="100" value="55" aria-label="Reveal slider">
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section id="finalTyping" class="finalTyping">
+      <canvas id="fireworks" class="fireworks hidden" aria-hidden="true"></canvas>
+      <div class="finalWrap">
+        <pre id="typeTarget" class="typeTarget"></pre><span class="caret">|</span>
+      </div>
+    </section>
+
+    <!-- Credits -->
+    <div id="credits" class="credits hidden" aria-hidden="true">
+      <div class="creditsShade"></div>
+      <div class="creditsRoll">
+        <div class="cLine big">Love_2025</div>
+        <div class="cLine">A New Year Surprise</div>
+        <div class="cSpace"></div>
+        <div class="cLine">Starring</div>
+        <div class="cLine big">Reny</div>
+        <div class="cSpace"></div>
+        <div class="cLine">Written & Directed by</div>
+        <div class="cLine big">Vishu</div>
+        <div class="cSpace"></div>
+        <div class="cLine">And always…</div>
+        <div class="cLine big">Your hubby Vishuuu</div>
+        <div class="cSpace"></div>
+        <div class="cLine">End.</div>
+      </div>
+    </div>
+
+    <!-- Kiss outro -->
+    <section id="kissOutro" class="kissOutro hidden">
+      <div class="kissBg"></div>
+      <div class="kissCenter">
+        <div class="bigHeart">❤</div>
+        <div class="kissText">
+          I love you my dear Reny<br>
+          <span class="sig">from Vishu</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Unlock Modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modalBox">
+      <div class="modalTitle">Unlock memory</div>
+      <div id="modalQ" class="modalQ"></div>
+      <input id="modalInput" class="modalInput" type="text" placeholder="Type your answer…" />
+      <div id="modalHint" class="modalHint hidden"></div>
+
+      <div class="modalBtns">
+        <button id="submitBtn" class="ctaBtn">Unlock</button>
+        <button id="hintBtn" class="ghostBtn hidden" type="button">Show hint</button>
+        <button id="closeBtn" class="ghostBtn" type="button">Close</button>
+      </div>
+
+      <div id="modalErr" class="modalErr"></div>
+    </div>
+  </div>
+
+  <!-- Vault Modal (Promise → Letter) -->
+  <div id="vaultModal" class="vaultModal hidden" role="dialog" aria-modal="true">
+    <div class="vaultBox">
+      <div id="vaultTitle" class="vaultTitle">Open When…</div>
+
+      <div id="vaultPromise" class="vaultPromise">
+        <div class="vaultPromiseText">
+          This is a promise.<br>
+          Open it only when you truly feel the title.
+        </div>
+        <div class="vaultBtns">
+          <button id="vaultPromiseBtn" class="ctaBtn" type="button">I Promise</button>
+          <button id="vaultCloseBtn" class="ghostBtn" type="button">Close</button>
+        </div>
+      </div>
+
+      <div id="vaultLetter" class="vaultLetter hidden">
+        <div id="vaultBody" class="vaultBody"></div>
+        <div class="vaultBtns">
+          <button id="vaultBackBtn" class="ghostBtn" type="button">Back</button>
+          <button id="vaultCloseBtn2" class="ctaBtn" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calm Mode Modal -->
+  <div id="calmModal" class="calmModal hidden" role="dialog" aria-modal="true">
+    <div class="calmBox">
+      <div class="calmTitle">Calm Mode</div>
+      <div id="calmText" class="calmText"></div>
+      <div class="calmBtns">
+        <button id="calmNextBtn" class="ghostBtn" type="button">Tap again (next)</button>
+        <button id="calmCloseBtn" class="ctaBtn" type="button">Close</button>
+      </div>
+      <div class="calmSmall">Read slowly. Breathe slowly.</div>
+    </div>
+  </div>
+
+  <script src="app.js?v=12.2"></script>
+</body>
+</html>
